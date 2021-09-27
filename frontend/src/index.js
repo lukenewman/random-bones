@@ -17,7 +17,8 @@ const App = () => {
   useEffect(() => {
     async function fetchEpisode() {
       try {
-        const res = await fetch('https://l8r73p.deta.dev/episode');
+        const url = "https://l8r73p.deta.dev/episode";
+        const res = await fetch(`/cors-proxy/${url}`);
         const json = await res.json();
         const episode = json[0][0];
         setEmbedURL(episode.url.replace('www', 'api') + "embed-html");
